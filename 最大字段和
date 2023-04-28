@@ -1,0 +1,22 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int ans[10000000];
+int sum = -99999999, n;
+int nl[10000000];
+int main()
+{
+	cin >> n;
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> nl[i];
+		if (i == 1)
+		{
+			ans[i] = nl[i];
+		}
+		else
+			ans[i] = max(nl[i], ans[i - 1] + nl[i]);
+		sum = max(ans[i], sum);
+	}
+	cout << sum;
+}
